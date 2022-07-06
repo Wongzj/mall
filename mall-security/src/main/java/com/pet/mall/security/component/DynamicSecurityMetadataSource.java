@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 import java.util.*;
 
 /**
- * 动态权限数据源，用于获取动态权限规则
+ * Dynamic permission data source for obtaining dynamic permission rules
  * Created by pet on 2020/2/7.
  */
 public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
@@ -35,19 +35,19 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         if (configAttributeMap == null) this.loadDataSource();
         List<ConfigAttribute>  configAttributes = new ArrayList<>();
-        //获取当前访问的路径
+        //Get the currently accessed path
         String url = ((FilterInvocation) o).getRequestUrl();
         String path = URLUtil.getPath(url);
         PathMatcher pathMatcher = new AntPathMatcher();
         Iterator<String> iterator = configAttributeMap.keySet().iterator();
-        //获取访问该路径所需资源
+        //Get the resources needed to access the path
         while (iterator.hasNext()) {
             String pattern = iterator.next();
             if (pathMatcher.match(pattern, path)) {
                 configAttributes.add(configAttributeMap.get(pattern));
             }
         }
-        // 未设置操作请求权限，返回空集合
+        // The operation request permission is not set, and an empty collection is returned
         return configAttributes;
     }
 

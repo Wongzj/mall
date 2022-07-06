@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 自定义返回结果：没有权限访问时
- * Created by pet on 2018/4/26.
+ * Custom return result: when there is no permission to access
+ * Created by pet on 2022/4/26.
  */
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler{
     @Override

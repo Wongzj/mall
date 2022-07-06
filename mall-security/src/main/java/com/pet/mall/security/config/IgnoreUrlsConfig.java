@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SpringSecurity白名单资源路径配置
- * Created by pet on 2018/11/5.
+ * SpringSecurityWhitelist resource path configuration
+ * Created by pet on 2021/11/5.
  */
 @Getter
 @Setter

@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 
 /**
- * SpringSecurity 5.4.x以上新用法配置，仅用于配置HttpSecurity
+ * The new usage configuration of SpringSecurity 5.4.x and above is only used to configure HttpSecurity
  * Created by pet on 2019/11/5.
  */
 @Configuration
@@ -38,33 +38,33 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = httpSecurity
                 .authorizeRequests();
-        //不需要保护的资源路径允许访问
+        //Resource paths that do not require protection allow access
         for (String url : ignoreUrlsConfig.getUrls()) {
             registry.antMatchers(url).permitAll();
         }
-        //允许跨域请求的OPTIONS请求
+        //OPTIONS requests that allow cross-origin requests
         registry.antMatchers(HttpMethod.OPTIONS)
                 .permitAll();
-        // 任何请求需要身份认证
+        // Authentication is required for any request
         registry.and()
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
-                // 关闭跨站请求防护及不使用session
+                // Disable cross-site request protection and do not use session
                 .and()
                 .csrf()
                 .disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                // 自定义权限拒绝处理类
+                // Custom permission denied handling class
                 .and()
                 .exceptionHandling()
                 .accessDeniedHandler(restfulAccessDeniedHandler)
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
-                // 自定义权限拦截器JWT过滤器
+                // Custom Permission Interceptor JWT Filter
                 .and()
                 .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-        //有动态权限配置时添加动态权限校验过滤器
+        //Add dynamic permission verification filter when there is dynamic permission configuration
         if(dynamicSecurityService!=null){
             registry.and().addFilterBefore(dynamicSecurityFilter, FilterSecurityInterceptor.class);
         }

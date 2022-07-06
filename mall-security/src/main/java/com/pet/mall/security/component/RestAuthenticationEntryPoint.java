@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 自定义返回结果：未登录或登录过期
- * Created by pet on 2018/5/14.
+ * Custom return result: not logged in or login expired
+ * Created by pet on 2022/5/14.
  */
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override

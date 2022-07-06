@@ -5,12 +5,12 @@ import org.springframework.security.access.ConfigAttribute;
 import java.util.Map;
 
 /**
- * 动态权限相关业务类
- * Created by pet on 2020/2/7.
+ * Dynamic permission related business classes
+ * Created by pet on 2022/2/7.
  */
 public interface DynamicSecurityService {
     /**
-     * 加载资源ANT通配符和资源对应MAP
+     * Load resource ANT wildcard and resource corresponding MAP
      */
     Map<String, ConfigAttribute> loadDataSource();
 }

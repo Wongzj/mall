@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 /**
- * Redis缓存切面，防止Redis宕机影响正常业务逻辑
- * Created by pet on 2020/3/17.
+ * Redis caches aspects to prevent Redis downtime from affecting normal business logic
+ * Created by pet on 2022/6/17.
  */
 @Aspect
 @Component

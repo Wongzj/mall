@@ -3,8 +3,8 @@ package com.pet.mall.security.annotation;
 import java.lang.annotation.*;
 
 /**
- * 自定义注解，有该注解的缓存方法会抛出异常
- * Created by pet on 2020/3/17.
+ * Custom annotation, the cache method with this annotation will throw an exception
+ * Created by pet on 2022/6/17.
  */
 @Documented
 @Target(ElementType.METHOD)
