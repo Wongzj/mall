@@ -1,0 +1,158 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+div:focus{
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//main-container
+.app-main{
+  min-height: 100%
+}
+
+.app-container {
+  padding: 20px;
+}
+
+//Search
+.filter-container {
+
+}
+
+//Action bar style
+.operate-container {
+  margin-top: 20px;
+}
+
+.operate-container .btn-add {
+  float: right;
+}
+
+//table column style
+.table-container {
+  margin-top: 20px;
+}
+
+//Bulk action bar style
+.batch-operate-container {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+//pagination bar style
+.pagination-container {
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+}
+
+
+.form-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 720px;
+  padding: 35px 35px 15px 35px;
+  margin: 20px auto;
+}
+
+
+.font-extra-large {
+  font-size: 20px;
+  color: #303133;
+}
+
+
+.font-title-large {
+  font-size: 18px;
+  color: #303133;
+}
+
+
+.font-title-medium {
+  font-size: 16px;
+  color: #303133;
+}
+
+
+.font-medium {
+  font-size: 16px;
+  color: #606266;
+}
+
+
+.font-small {
+  font-size: 14px;
+  color: #606266;
+}
+
+
+.font-extra-small {
+  font-size: 13px;
+  color: #606266;
+}
+
+.color-main {
+  color: #409EFF;
+}
+
+.color-success {
+  color: #67C23A;
+}
+
+.color-warning {
+  color: #E6A23C;
+}
+
+.color-danger {
+  color: #F56C6C;
+}
+
+.color-info {
+  color: #909399;
+}
+
