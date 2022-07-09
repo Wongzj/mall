@@ -67,43 +67,45 @@ export default {
       const province = tdist.getLev1()
       Object.entries(this.areaList.county_list).forEach(([id, text]) => {
         // First find the current corresponding area
-        if (text == addressDetail.regionName) {
+        if (text == addressDetail.region) {
           // Find several provinces corresponding to the district
           const provinceIndex = province.findIndex(item => item.id.substr(0, 2) == id.substr(0, 2))
           // Find several urban areas corresponding to the district
           const cityItem = Object.entries(this.areaList.city_list).filter(([cityId, cityName]) => cityId.substr(0, 4) == id.substr(0, 4))[0]
           //Compare whether the found province is equal to the province returned by the interface, because some districts will have the same name
-          if (province[provinceIndex].text == addressDetail.provinceName && cityItem[1] == addressDetail.cityName) {
+          if (province[provinceIndex].text == addressDetail.province && cityItem[1] == addressDetail.city) {
             _areaCode = id
           }
         }
       })
       this.addressInfo = {
-        id: addressDetail.addressId,
-        name: addressDetail.userName,
-        tel: addressDetail.userPhone,
-        province: addressDetail.provinceName,
-        city: addressDetail.cityName,
-        county: addressDetail.regionName,
+        id: addressDetail.id,
+        name: addressDetail.name,
+        tel: addressDetail.phoneNumber,
+        province: addressDetail.province,
+        city: addressDetail.city,
+        county: addressDetail.region,
         addressDetail: addressDetail.detailAddress,
+        //没有修改，可能有问题
         areaCode: _areaCode,
-        isDefault: !!addressDetail.defaultFlag
+        isDefault: !!addressDetail.defaultStatus
       }
     }
   },
   methods: {
     async onSave(content) {
       const params = {
-        userName: content.name,
-        userPhone: content.tel,
-        provinceName: content.province,
-        cityName: content.city,
-        regionName: content.county,
+        name: content.name,
+        phoneNumber: content.tel,
+        province: content.province,
+        city: content.city,
+        region: content.county,
         detailAddress: content.addressDetail,
-        defaultFlag: content.isDefault ? 1 : 0,
+        defaultStatus: content.isDefault ? 1 : 0,
       }
       if (this.type == 'edit') {
-        params['addressId'] = this.addressId
+        //这里addressId的来源不知道在哪里
+        params['id'] = this.addressId
       }
       const { message } = await this.type == 'add' ? addAddress(params) : EditAddress(params)
       Toast('Successfully saved')

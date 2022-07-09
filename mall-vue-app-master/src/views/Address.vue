@@ -43,15 +43,16 @@ export default {
     const { data } = await getAddressList()
     this.list = data.map(item => {
       return {
-        id: item.addressId,
-        name: item.userName,
-        tel: item.userPhone,
-        address: `${item.provinceName} ${item.cityName} ${item.regionName} ${item.detailAddress}`,
-        isDefault: !!item.defaultFlag
+        id: item.id,
+        name: item.name,
+        tel: item.phoneNumber,
+        address: `${item.province} ${item.city} ${item.region} ${item.detailAddress}`,
+        isDefault: !!item.defaultStatus
       }
     })
   },
   methods: {
+    //需要跟着后端接口进行更改
     onAdd() {
       this.$router.push({ path: `address-edit?type=add&from=${this.from}` })
     },
