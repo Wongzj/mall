@@ -2,11 +2,11 @@ spring:
   application:
     name: mall-admin
   profiles:
-    active: dev #默认为开发环境
+    active: EC6001
   servlet:
     multipart:
-      enabled: true #开启文件上传
-      max-file-size: 10MB #限制文件上传大小为10M
+      enabled: true
+      max-file-size: 15MB
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -52,13 +52,13 @@ secure:
 
 aliyun:
   oss:
-    endpoint: oss-cn-shenzhen.aliyuncs.com # oss对外服务的访问域名
-    accessKeyId: test # 访问身份验证中用到用户标识
-    accessKeySecret: test # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
-    bucketName: pet-oss # oss的存储空间
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: LTAI5t9CJAJwC95DKB5Wu2Yf
+    accessKeySecret: LUassD0Dx7jKmUh3lDSvnGCYbtzfte
+    bucketName: retowang
     policy:
-      expire: 300 # 签名有效期(S)
-    maxSize: 10 # 上传文件大小(M)
-    callback: http://39.98.190.128:8080/aliyun/oss/callback # 文件上传成功后的回调地址
+      expire: 600
+    maxSize: 15
+    # callback: http://39.98.190.128:8080/aliyun/oss/callback # 文件上传成功后的回调地址
     dir:
-      prefix: mall/images/ # 上传文件夹路径前缀
+      prefix: mall/images/
