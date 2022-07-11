@@ -8,52 +8,52 @@ import java.util.Date;
 public class SmsCoupon implements Serializable {
     private Long id;
 
-    @ApiModelProperty(value = "优惠券类型；0->全场赠券；1->会员赠券；2->购物赠券；3->注册赠券")
+    @ApiModelProperty(value = "Coupon Type；0->General; 1->Membership; 2->Shopping; 3->Register")
     private Integer type;
 
     private String name;
 
-    @ApiModelProperty(value = "使用平台：0->全部；1->移动；2->PC")
+    @ApiModelProperty(value = "Platform：0->All；1->Mobile；2->PC")
     private Integer platform;
 
-    @ApiModelProperty(value = "数量")
+    @ApiModelProperty(value = "Count")
     private Integer count;
 
-    @ApiModelProperty(value = "金额")
+    @ApiModelProperty(value = "Amount")
     private BigDecimal amount;
 
-    @ApiModelProperty(value = "每人限领张数")
+    @ApiModelProperty(value = "Limit")
     private Integer perLimit;
 
-    @ApiModelProperty(value = "使用门槛；0表示无门槛")
+    @ApiModelProperty(value = "Use restrictions:0 stand for no restriction")
     private BigDecimal minPoint;
 
     private Date startTime;
 
     private Date endTime;
 
-    @ApiModelProperty(value = "使用类型：0->全场通用；1->指定分类；2->指定商品")
+    @ApiModelProperty(value = "Use Type：0->General; 1->Specified Categories; 2->Specified Products")
     private Integer useType;
 
-    @ApiModelProperty(value = "备注")
+    @ApiModelProperty(value = "Note")
     private String note;
 
-    @ApiModelProperty(value = "发行数量")
+    @ApiModelProperty(value = "Publish Count")
     private Integer publishCount;
 
-    @ApiModelProperty(value = "已使用数量")
+    @ApiModelProperty(value = "Used Count")
     private Integer useCount;
 
-    @ApiModelProperty(value = "领取数量")
+    @ApiModelProperty(value = "Receive Amount")
     private Integer receiveCount;
 
-    @ApiModelProperty(value = "可以领取的日期")
+    @ApiModelProperty(value = "Enable Time")
     private Date enableTime;
 
-    @ApiModelProperty(value = "优惠码")
+    @ApiModelProperty(value = "Code")
     private String code;
 
-    @ApiModelProperty(value = "可领取的会员类型：0->无限时")
+    @ApiModelProperty(value = "Member Lever：0->Unlimited")
     private Integer memberLevel;
 
     private static final long serialVersionUID = 1L;

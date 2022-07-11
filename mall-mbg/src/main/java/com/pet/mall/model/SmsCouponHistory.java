@@ -13,24 +13,24 @@ public class SmsCouponHistory implements Serializable {
 
     private String couponCode;
 
-    @ApiModelProperty(value = "领取人昵称")
+    @ApiModelProperty(value = "Member Nickname")
     private String memberNickname;
 
-    @ApiModelProperty(value = "获取类型：0->后台赠送；1->主动获取")
+    @ApiModelProperty(value = "Get Type：0->System；1->Acquirement")
     private Integer getType;
 
     private Date createTime;
 
-    @ApiModelProperty(value = "使用状态：0->未使用；1->已使用；2->已过期")
+    @ApiModelProperty(value = "Use Status：0->Unused；1->Used；2->Expired")
     private Integer useStatus;
 
-    @ApiModelProperty(value = "使用时间")
+    @ApiModelProperty(value = "Use Time")
     private Date useTime;
 
-    @ApiModelProperty(value = "订单编号")
+    @ApiModelProperty(value = "Order ID")
     private Long orderId;
 
-    @ApiModelProperty(value = "订单号码")
+    @ApiModelProperty(value = "Order SN")
     private String orderSn;
 
     private static final long serialVersionUID = 1L;

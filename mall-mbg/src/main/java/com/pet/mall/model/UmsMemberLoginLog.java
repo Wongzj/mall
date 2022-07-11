@@ -15,7 +15,7 @@ public class UmsMemberLoginLog implements Serializable {
 
     private String city;
 
-    @ApiModelProperty(value = "登录类型：0->PC；1->android;2->ios;3->小程序")
+    @ApiModelProperty(value = "Login Type: 0->PC; 1->Android; 2->IOS; 3->Mini Program")
     private Integer loginType;
 
     private String province;
