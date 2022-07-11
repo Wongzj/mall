@@ -17,21 +17,21 @@ public class CmsTopic implements Serializable {
 
     private Date endTime;
 
-    @ApiModelProperty(value = "参与人数")
+    @ApiModelProperty(value = "Participation Number")
     private Integer attendCount;
 
-    @ApiModelProperty(value = "关注人数")
+    @ApiModelProperty(value = "Follower Number")
     private Integer attentionCount;
 
     private Integer readCount;
 
-    @ApiModelProperty(value = "奖品名称")
+    @ApiModelProperty(value = "Award Name")
     private String awardName;
 
-    @ApiModelProperty(value = "参与方式")
+    @ApiModelProperty(value = "Attend Type")
     private String attendType;
 
-    @ApiModelProperty(value = "话题内容")
+    @ApiModelProperty(value = "Topic Content")
     private String content;
 
     private static final long serialVersionUID = 1L;

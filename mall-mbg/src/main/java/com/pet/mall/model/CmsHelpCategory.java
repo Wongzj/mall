@@ -8,10 +8,10 @@ public class CmsHelpCategory implements Serializable {
 
     private String name;
 
-    @ApiModelProperty(value = "分类图标")
+    @ApiModelProperty(value = "Icon Classification")
     private String icon;
 
-    @ApiModelProperty(value = "专题数量")
+    @ApiModelProperty(value = "Subject Count")
     private Integer helpCount;
 
     private Integer showStatus;
