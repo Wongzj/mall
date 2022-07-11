@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 品牌管理示例controller
+ * DEMO controller
  * Created by pet on 2019/4/8.
  */
-@Api(tags = "DemoController", description = "品牌管理示例接口")
+@Api(tags = "DemoController", description = "demo API")
 @Controller
 public class DemoController {
     @Autowired
@@ -28,14 +28,14 @@ public class DemoController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DemoController.class);
 
-    @ApiOperation(value = "获取全部品牌列表")
+    @ApiOperation(value = "get all brand list")
     @RequestMapping(value = "/brand/listAll", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
     }
 
-    @ApiOperation(value = "添加品牌")
+    @ApiOperation(value = "add brand")
     @RequestMapping(value = "/brand/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult createBrand(@Validated @RequestBody PmsBrandDto pmsBrand) {
@@ -45,13 +45,13 @@ public class DemoController {
             commonResult = CommonResult.success(pmsBrand);
             LOGGER.debug("createBrand success:{}", pmsBrand);
         } else {
-            commonResult = CommonResult.failed("操作失败");
+            commonResult = CommonResult.failed("operation failure");
             LOGGER.debug("createBrand failed:{}", pmsBrand);
         }
         return commonResult;
     }
 
-    @ApiOperation(value = "更新品牌")
+    @ApiOperation(value = "update brand")
     @RequestMapping(value = "/brand/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateBrand(@PathVariable("id") Long id, @Validated @RequestBody PmsBrandDto pmsBrandDto) {
@@ -61,13 +61,13 @@ public class DemoController {
             commonResult = CommonResult.success(pmsBrandDto);
             LOGGER.debug("updateBrand success:{}", pmsBrandDto);
         } else {
-            commonResult = CommonResult.failed("操作失败");
+            commonResult = CommonResult.failed("operation failure");
             LOGGER.debug("updateBrand failed:{}", pmsBrandDto);
         }
         return commonResult;
     }
 
-    @ApiOperation(value = "删除品牌")
+    @ApiOperation(value = "delete brand")
     @RequestMapping(value = "/brand/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
@@ -77,11 +77,11 @@ public class DemoController {
             return CommonResult.success(null);
         } else {
             LOGGER.debug("deleteBrand failed :id={}", id);
-            return CommonResult.failed("操作失败");
+            return CommonResult.failed("operation failure");
         }
     }
 
-    @ApiOperation(value = "分页获取品牌列表")
+    @ApiOperation(value = "get brand list by pages")
     @RequestMapping(value = "/brand/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -90,7 +90,7 @@ public class DemoController {
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 
-    @ApiOperation(value = "根据编号查询品牌信息")
+    @ApiOperation(value = "query brand info by id")
     @RequestMapping(value = "/brand/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {

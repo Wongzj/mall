@@ -6,7 +6,7 @@ import com.pet.mall.model.PmsBrand;
 import java.util.List;
 
 /**
- * DemoService接口
+ * DemoService API
  * Created by pet on 2019/4/8.
  */
 public interface DemoService {

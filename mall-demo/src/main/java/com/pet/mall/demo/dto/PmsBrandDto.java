@@ -8,31 +8,31 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
- * 品牌传递参数
+ * brand pass parameter
  * Created by pet on 2019/4/8.
  */
 @ApiModel(value = "PmsBrandDto")
 public class PmsBrandDto {
-    @ApiModelProperty(value = "品牌名称",required = true)
-    @NotNull(message = "名称不能为空")
+    @ApiModelProperty(value = "brand name",required = true)
+    @NotNull(message = "Name cannot be empty")
     private String name;
-    @ApiModelProperty(value = "品牌首字母",required = true)
-    @NotNull(message = "首字母不能为空")
+    @ApiModelProperty(value = "brand initials",required = true)
+    @NotNull(message = "The first letter cannot be empty")
     private String firstLetter;
-    @ApiModelProperty(value = "排序字段")
-    @Min(value = 0, message = "排序最小为0")
+    @ApiModelProperty(value = "sort")
+    @Min(value = 0, message = "sort min value is 0")
     private Integer sort;
-    @ApiModelProperty(value = "是否为厂家制造商")
-    @FlagValidator(value = {"0","1"}, message = "厂家状态不正确")
+    @ApiModelProperty(value = "manufacturer status")
+    @FlagValidator(value = {"0","1"}, message = "manufacturer status incorrect")
     private Integer factoryStatus;
-    @ApiModelProperty(value = "是否进行显示")
-    @FlagValidator(value = {"0","1"}, message = "显示状态不正确")
+    @ApiModelProperty(value = "display status")
+    @FlagValidator(value = {"0","1"}, message = "display status incorrect")
     private Integer showStatus;
-    @ApiModelProperty(value = "品牌logo")
+    @ApiModelProperty(value = " brand logo")
     private String logo;
-    @ApiModelProperty(value = "品牌大图")
+    @ApiModelProperty(value = "brand graph")
     private String bigPic;
-    @ApiModelProperty(value = "品牌故事")
+    @ApiModelProperty(value = "brand story")
     private String brandStory;
 
     public String getName() {

@@ -13,7 +13,7 @@ spring:
     encoding: utf-8
     servlet:
       content-type: text/html
-    cache: false #开发时关闭缓存,不然没法看到实时页面
+    cache: false #Turn off cache during development to see live pages
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
