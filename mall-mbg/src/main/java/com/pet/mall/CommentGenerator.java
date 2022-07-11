@@ -11,7 +11,7 @@ import org.mybatis.generator.internal.util.StringUtility;
 import java.util.Properties;
 
 /**
- * 自定义注释生成器
+ * Custom comment generator
  * Created by pet on 2018/4/26.
  */
 public class CommentGenerator extends DefaultCommentGenerator {
@@ -21,7 +21,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
     private static final String API_MODEL_PROPERTY_FULL_CLASS_NAME="io.swagger.annotations.ApiModelProperty";
 
     /**
-     * 设置用户配置的参数
+     * Set user configured parameters
      */
     @Override
     public void addConfigurationProperties(Properties properties) {
@@ -30,31 +30,31 @@ public class CommentGenerator extends DefaultCommentGenerator {
     }
 
     /**
-     * 给字段添加注释
+     * Add comments to the field
      */
     @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable,
                                 IntrospectedColumn introspectedColumn) {
         String remarks = introspectedColumn.getRemarks();
-        //根据参数和备注信息判断是否添加swagger注解信息
+        //Determine whether to add Swagger annotation information based on parameters and remarks
         if(addRemarkComments&&StringUtility.stringHasValue(remarks)){
 //            addFieldJavaDoc(field, remarks);
-            //数据库中特殊字符需要转义
+            //Special characters in the database need to be escaped
             if(remarks.contains("\"")){
                 remarks = remarks.replace("\"","'");
             }
-            //给model的字段添加swagger注解
+            //Add swagger annotations to the fields of MODEL
             field.addJavaDocLine("@ApiModelProperty(value = \""+remarks+"\")");
         }
     }
 
     /**
-     * 给model的字段添加注释
+     * Add swagger annotations to the fields of MODEL
      */
     private void addFieldJavaDoc(Field field, String remarks) {
-        //文档注释开始
+        //Start Document Comment
         field.addJavaDocLine("/**");
-        //获取数据库字段的备注信息
+        //Gets the annotations of database fields
         String[] remarkLines = remarks.split(System.getProperty("line.separator"));
         for(String remarkLine:remarkLines){
             field.addJavaDocLine(" * "+remarkLine);
@@ -66,7 +66,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
     @Override
     public void addJavaFileComment(CompilationUnit compilationUnit) {
         super.addJavaFileComment(compilationUnit);
-        //只在model中添加swagger注解类的导入
+        //Add the Import of the Swagger annotation class only to MODEL
         if(!compilationUnit.getType().getFullyQualifiedName().contains(MAPPER_SUFFIX)&&!compilationUnit.getType().getFullyQualifiedName().contains(EXAMPLE_SUFFIX)){
             compilationUnit.addImportedType(new FullyQualifiedJavaType(API_MODEL_PROPERTY_FULL_CLASS_NAME));
         }
