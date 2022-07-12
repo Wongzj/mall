@@ -2,7 +2,7 @@ spring:
   application:
     name: mall-admin
   profiles:
-    active: EC6001
+    active: dev
   servlet:
     multipart:
       enabled: true
@@ -59,6 +59,6 @@ aliyun:
     policy:
       expire: 600
     maxSize: 15
-    # callback: http://39.98.190.128:8080/aliyun/oss/callback # 文件上传成功后的回调地址
+    callback: http://localhost:8080/aliyun/oss/callback # 文件上传成功后的回调地址
     dir:
       prefix: mall/images/
