@@ -16,17 +16,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Oss对象存储管理Controller
- * Created by pet on 2018/4/26.
+ * Controller: Oss management
  */
 @Controller
-@Api(tags = "OssController", description = "Oss管理")
+@Api(tags = "OssController", description = "Oss management")
 @RequestMapping("/aliyun/oss")
 public class OssController {
     @Autowired
     private OssService ossService;
 
-    @ApiOperation(value = "Oss上传签名生成")
+    @ApiOperation(value = "Oss signature")
     @RequestMapping(value = "/policy", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<OssPolicyResult> policy() {
@@ -34,7 +33,7 @@ public class OssController {
         return CommonResult.success(result);
     }
 
-    @ApiOperation(value = "Oss上传成功回调")
+    @ApiOperation(value = "Oss callback")
     @RequestMapping(value = "callback", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult<OssCallbackResult> callback(HttpServletRequest request) {

@@ -16,17 +16,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 订单退货申请管理Controller
- * Created by pet on 2018/10/18.
+ * Controller: Return management
  */
 @Controller
-@Api(tags = "OmsOrderReturnApplyController", description = "订单退货申请管理")
+@Api(tags = "OmsOrderReturnApplyController", description = "Return management")
 @RequestMapping("/returnApply")
 public class OmsOrderReturnApplyController {
     @Autowired
     private OmsOrderReturnApplyService returnApplyService;
 
-    @ApiOperation("分页查询退货申请")
+    @ApiOperation("query")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<OmsOrderReturnApply>> list(OmsReturnApplyQueryParam queryParam,
@@ -36,7 +35,7 @@ public class OmsOrderReturnApplyController {
         return CommonResult.success(CommonPage.restPage(returnApplyList));
     }
 
-    @ApiOperation("批量删除退货申请")
+    @ApiOperation("batch delete")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
@@ -47,7 +46,7 @@ public class OmsOrderReturnApplyController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("获取退货申请详情")
+    @ApiOperation("details")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getItem(@PathVariable Long id) {
@@ -55,7 +54,7 @@ public class OmsOrderReturnApplyController {
         return CommonResult.success(result);
     }
 
-    @ApiOperation("修改退货申请状态")
+    @ApiOperation("update status")
     @RequestMapping(value = "/update/status/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateStatus(@PathVariable Long id, @RequestBody OmsUpdateStatusParam statusParam) {

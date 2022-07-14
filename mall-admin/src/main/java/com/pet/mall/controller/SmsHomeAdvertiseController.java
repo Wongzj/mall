@@ -13,17 +13,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 首页轮播广告管理Controller
- * Created by pet on 2018/11/7.
+ * Controller: Advertisement management
  */
 @Controller
-@Api(tags = "SmsHomeAdvertiseController", description = "首页轮播广告管理")
+@Api(tags = "SmsHomeAdvertiseController", description = "Advertisement management")
 @RequestMapping("/home/advertise")
 public class SmsHomeAdvertiseController {
     @Autowired
     private SmsHomeAdvertiseService advertiseService;
 
-    @ApiOperation("添加广告")
+    @ApiOperation("add")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody SmsHomeAdvertise advertise) {
@@ -33,7 +32,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("删除广告")
+    @ApiOperation("delete")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
@@ -43,7 +42,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("修改上下线状态")
+    @ApiOperation("update status")
     @RequestMapping(value = "/update/status/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateStatus(@PathVariable Long id, Integer status) {
@@ -53,7 +52,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("获取广告详情")
+    @ApiOperation("details")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<SmsHomeAdvertise> getItem(@PathVariable Long id) {
@@ -61,7 +60,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.success(advertise);
     }
 
-    @ApiOperation("修改广告")
+    @ApiOperation("update")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody SmsHomeAdvertise advertise) {
@@ -71,7 +70,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("分页查询广告")
+    @ApiOperation("query")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<SmsHomeAdvertise>> list(@RequestParam(value = "name", required = false) String name,

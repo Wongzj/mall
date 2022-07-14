@@ -10,17 +10,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 订单设置管理Controller
- * Created by pet on 2018/10/16.
+ * Controller: Order setting management
  */
 @Controller
-@Api(tags = "OmsOrderSettingController", description = "订单设置管理")
+@Api(tags = "OmsOrderSettingController", description = "Order setting management")
 @RequestMapping("/orderSetting")
 public class OmsOrderSettingController {
     @Autowired
     private OmsOrderSettingService orderSettingService;
 
-    @ApiOperation("获取指定订单设置")
+    @ApiOperation("get")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<OmsOrderSetting> getItem(@PathVariable Long id) {
@@ -28,7 +27,7 @@ public class OmsOrderSettingController {
         return CommonResult.success(orderSetting);
     }
 
-    @ApiOperation("修改指定订单设置")
+    @ApiOperation("update")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody OmsOrderSetting orderSetting) {

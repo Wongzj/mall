@@ -15,24 +15,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 商品品牌管理Controller
- * Created by pet on 2018/4/26.
+ * Controller: Brand management
  */
 @Controller
-@Api(tags = "PmsBrandController", description = "商品品牌管理")
+@Api(tags = "PmsBrandController", description = "Brand management")
 @RequestMapping("/brand")
 public class PmsBrandController {
     @Autowired
     private PmsBrandService brandService;
 
-    @ApiOperation(value = "获取全部品牌列表")
+    @ApiOperation(value = "get_all")
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsBrand>> getList() {
         return CommonResult.success(brandService.listAllBrand());
     }
 
-    @ApiOperation(value = "添加品牌")
+    @ApiOperation(value = "add")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@Validated @RequestBody PmsBrandParam pmsBrand) {
@@ -46,7 +45,7 @@ public class PmsBrandController {
         return commonResult;
     }
 
-    @ApiOperation(value = "更新品牌")
+    @ApiOperation(value = "update")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable("id") Long id,
@@ -61,7 +60,7 @@ public class PmsBrandController {
         return commonResult;
     }
 
-    @ApiOperation(value = "删除品牌")
+    @ApiOperation(value = "delete")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult delete(@PathVariable("id") Long id) {
@@ -73,7 +72,7 @@ public class PmsBrandController {
         }
     }
 
-    @ApiOperation(value = "根据品牌名称分页获取品牌列表")
+    @ApiOperation(value = "query by keywords")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> getList(@RequestParam(value = "keyword", required = false) String keyword,
@@ -83,14 +82,14 @@ public class PmsBrandController {
         return CommonResult.success(CommonPage.restPage(brandList));
     }
 
-    @ApiOperation(value = "根据编号查询品牌信息")
+    @ApiOperation(value = "query")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsBrand> getItem(@PathVariable("id") Long id) {
         return CommonResult.success(brandService.getBrand(id));
     }
 
-    @ApiOperation(value = "批量删除品牌")
+    @ApiOperation(value = "batch delete")
     @RequestMapping(value = "/delete/batch", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult deleteBatch(@RequestParam("ids") List<Long> ids) {
@@ -102,7 +101,7 @@ public class PmsBrandController {
         }
     }
 
-    @ApiOperation(value = "批量更新显示状态")
+    @ApiOperation(value = "batch update")
     @RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateShowStatus(@RequestParam("ids") List<Long> ids,
@@ -115,7 +114,7 @@ public class PmsBrandController {
         }
     }
 
-    @ApiOperation(value = "批量更新厂家制造商状态")
+    @ApiOperation(value = "update factory status")
     @RequestMapping(value = "/update/factoryStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateFactoryStatus(@RequestParam("ids") List<Long> ids,
