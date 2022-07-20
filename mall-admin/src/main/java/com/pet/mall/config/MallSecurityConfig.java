@@ -15,8 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * mall-security模块相关配置
- * Created by pet on 2019/11/9.
+ * config: mall-security
  */
 @Configuration
 public class MallSecurityConfig {
@@ -28,7 +27,6 @@ public class MallSecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        //获取登录用户信息
         return username -> adminService.loadUserByUsername(username);
     }
 

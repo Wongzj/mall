@@ -26,6 +26,5 @@ public class BucketPolicyConfigDto {
         private String Principal;
         private String Action;
         private String Resource;
-
     }
 }
