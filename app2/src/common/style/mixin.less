@@ -1,0 +1,89 @@
+
+ 
+@import './base.less';
+@primary: #c92222; 
+@orange: #FF6B01; 
+@bc: #F7F7F7;
+@fc:#fff;
+
+// // Background image address and size
+.bis(@url) {
+  background-image: url(@url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// //rounded corners
+.borderRadius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// //1px bottom border
+.border-1px(@color){
+  position: relative;
+  &:after{
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid @color;
+    content: '';
+  }
+}
+// //Positioning full screen
+.allcover{
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+// //Position up, down, left and right center
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// //Position up and down center
+.ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// //Position left and right center
+.cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// //Width Height
+.wh(@width, @height){
+  width: @width;
+  height: @height;
+}
+
+// //font size, color
+.sc(@size, @color){
+  font-size: @size;
+  color: @color;
+}
+
+.boxSizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// //flex layout and how child elements are aligned
+.fj(@type: space-between){
+  display: flex;
+  justify-content: @type;
+}
