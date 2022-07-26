@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Swagger基础配置
- * Created by pet on 2020/7/16.
- */
 public abstract class BaseSwaggerConfig {
 
     @Bean
@@ -52,7 +48,6 @@ public abstract class BaseSwaggerConfig {
     }
 
     private List<SecurityScheme> securitySchemes() {
-        //设置请求头信息
         List<SecurityScheme> result = new ArrayList<>();
         ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
         result.add(apiKey);
@@ -60,7 +55,6 @@ public abstract class BaseSwaggerConfig {
     }
 
     private List<SecurityContext> securityContexts() {
-        //设置需要登录认证的路径
         List<SecurityContext> result = new ArrayList<>();
         result.add(getContextByPath("/*/.*"));
         return result;
@@ -114,8 +108,5 @@ public abstract class BaseSwaggerConfig {
         };
     }
 
-    /**
-     * 自定义Swagger配置
-     */
     public abstract SwaggerProperties swaggerProperties();
 }

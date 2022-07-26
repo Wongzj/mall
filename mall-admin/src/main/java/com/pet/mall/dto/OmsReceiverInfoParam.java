@@ -4,29 +4,25 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * 订单修改收货人信息参数
- * Created by pet on 2018/10/29.
- */
 @Getter
 @Setter
 public class OmsReceiverInfoParam {
-    @ApiModelProperty(value = "订单ID")
+    @ApiModelProperty(value = "ID")
     private Long orderId;
-    @ApiModelProperty(value = "收货人姓名")
+    @ApiModelProperty(value = "receiverName")
     private String receiverName;
-    @ApiModelProperty(value = "收货人电话")
+    @ApiModelProperty(value = "receiverPhone")
     private String receiverPhone;
-    @ApiModelProperty(value = "收货人邮编")
+    @ApiModelProperty(value = "receiverPostCode")
     private String receiverPostCode;
-    @ApiModelProperty(value = "详细地址")
+    @ApiModelProperty(value = "receiverDetailAddress")
     private String receiverDetailAddress;
-    @ApiModelProperty(value = "省份/直辖市")
+    @ApiModelProperty(value = "receiverProvince")
     private String receiverProvince;
-    @ApiModelProperty(value = "城市")
+    @ApiModelProperty(value = "receiverCity")
     private String receiverCity;
-    @ApiModelProperty(value = "区")
+    @ApiModelProperty(value = "receiverRegion")
     private String receiverRegion;
-    @ApiModelProperty(value = "订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单")
+    @ApiModelProperty(value = "status")
     private Integer status;
 }

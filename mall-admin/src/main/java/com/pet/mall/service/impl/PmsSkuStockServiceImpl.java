@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 商品SKU库存管理Service实现类
- * Created by pet on 2018/4/27.
- */
 @Service
 public class PmsSkuStockServiceImpl implements PmsSkuStockService {
     @Autowired

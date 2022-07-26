@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 优惠券领取记录管理Service实现类
- * Created by pet on 2018/11/6.
- */
 @Service
 public class SmsCouponHistoryServiceImpl implements SmsCouponHistoryService {
     @Autowired

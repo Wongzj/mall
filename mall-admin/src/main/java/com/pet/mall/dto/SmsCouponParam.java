@@ -9,17 +9,13 @@ import lombok.Setter;
 
 import java.util.List;
 
-/**
- * 优惠券信息封装，包括绑定商品和分类
- * Created by pet on 2018/8/28.
- */
 public class SmsCouponParam extends SmsCoupon {
     @Getter
     @Setter
-    @ApiModelProperty("优惠券绑定的商品")
+    @ApiModelProperty("productRelationList")
     private List<SmsCouponProductRelation> productRelationList;
     @Getter
     @Setter
-    @ApiModelProperty("优惠券绑定的商品分类")
+    @ApiModelProperty("productCategoryRelationList")
     private List<SmsCouponProductCategoryRelation> productCategoryRelationList;
 }

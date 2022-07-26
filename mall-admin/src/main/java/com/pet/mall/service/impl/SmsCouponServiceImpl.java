@@ -17,10 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 优惠券管理Service实现类
- * Created by pet on 2018/8/28.
- */
 @Service
 public class SmsCouponServiceImpl implements SmsCouponService {
     @Autowired
@@ -40,16 +36,13 @@ public class SmsCouponServiceImpl implements SmsCouponService {
         couponParam.setCount(couponParam.getPublishCount());
         couponParam.setUseCount(0);
         couponParam.setReceiveCount(0);
-        //插入优惠券表
         int count = couponMapper.insert(couponParam);
-        //插入优惠券和商品关系表
         if(couponParam.getUseType().equals(2)){
             for(SmsCouponProductRelation productRelation:couponParam.getProductRelationList()){
                 productRelation.setCouponId(couponParam.getId());
             }
             productRelationDao.insertList(couponParam.getProductRelationList());
         }
-        //插入优惠券和商品分类关系表
         if(couponParam.getUseType().equals(1)){
             for (SmsCouponProductCategoryRelation couponProductCategoryRelation : couponParam.getProductCategoryRelationList()) {
                 couponProductCategoryRelation.setCouponId(couponParam.getId());
@@ -61,11 +54,8 @@ public class SmsCouponServiceImpl implements SmsCouponService {
 
     @Override
     public int delete(Long id) {
-        //删除优惠券
         int count = couponMapper.deleteByPrimaryKey(id);
-        //删除商品关联
         deleteProductRelation(id);
-        //删除商品分类关联
         deleteProductCategoryRelation(id);
         return count;
     }
@@ -86,7 +76,6 @@ public class SmsCouponServiceImpl implements SmsCouponService {
     public int update(Long id, SmsCouponParam couponParam) {
         couponParam.setId(id);
         int count =couponMapper.updateByPrimaryKey(couponParam);
-        //删除后插入优惠券和商品关系表
         if(couponParam.getUseType().equals(2)){
             for(SmsCouponProductRelation productRelation:couponParam.getProductRelationList()){
                 productRelation.setCouponId(couponParam.getId());
@@ -94,7 +83,6 @@ public class SmsCouponServiceImpl implements SmsCouponService {
             deleteProductRelation(id);
             productRelationDao.insertList(couponParam.getProductRelationList());
         }
-        //删除后插入优惠券和商品分类关系表
         if(couponParam.getUseType().equals(1)){
             for (SmsCouponProductCategoryRelation couponProductCategoryRelation : couponParam.getProductCategoryRelationList()) {
                 couponProductCategoryRelation.setCouponId(couponParam.getId());

@@ -15,10 +15,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * 后台菜单管理Service实现类
- * Created by pet on 2020/2/2.
- */
 @Service
 public class UmsMenuServiceImpl implements UmsMenuService {
     @Autowired
@@ -31,15 +27,10 @@ public class UmsMenuServiceImpl implements UmsMenuService {
         return menuMapper.insert(umsMenu);
     }
 
-    /**
-     * 修改菜单层级
-     */
     private void updateLevel(UmsMenu umsMenu) {
         if (umsMenu.getParentId() == 0) {
-            //没有父菜单时为一级菜单
             umsMenu.setLevel(0);
         } else {
-            //有父菜单时选择根据父菜单level设置
             UmsMenu parentMenu = menuMapper.selectByPrimaryKey(umsMenu.getParentId());
             if (parentMenu != null) {
                 umsMenu.setLevel(parentMenu.getLevel() + 1);
@@ -92,9 +83,6 @@ public class UmsMenuServiceImpl implements UmsMenuService {
         return menuMapper.updateByPrimaryKeySelective(umsMenu);
     }
 
-    /**
-     * 将UmsMenu转化为UmsMenuNode并设置children属性
-     */
     private UmsMenuNode covertMenuNode(UmsMenu menu, List<UmsMenu> menuList) {
         UmsMenuNode node = new UmsMenuNode();
         BeanUtils.copyProperties(menu, node);

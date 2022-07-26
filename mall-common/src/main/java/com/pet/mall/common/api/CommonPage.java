@@ -5,35 +5,13 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-/**
- * 分页数据封装类
- * Created by pet on 2019/4/19.
- */
 public class CommonPage<T> {
-    /**
-     * 当前页码
-     */
-    private Integer pageNum;
-    /**
-     * 每页数量
-     */
-    private Integer pageSize;
-    /**
-     * 总页数
-     */
-    private Integer totalPage;
-    /**
-     * 总条数
-     */
-    private Long total;
-    /**
-     * 分页数据
-     */
-    private List<T> list;
 
-    /**
-     * 将PageHelper分页后的list转为分页信息
-     */
+    private Integer pageNum;
+    private Integer pageSize;
+    private Integer totalPage;
+    private Long total;
+    private List<T> list;
     public static <T> CommonPage<T> restPage(List<T> list) {
         CommonPage<T> result = new CommonPage<T>();
         PageInfo<T> pageInfo = new PageInfo<T>(list);
@@ -45,9 +23,6 @@ public class CommonPage<T> {
         return result;
     }
 
-    /**
-     * 将SpringData分页后的list转为分页信息
-     */
     public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
         CommonPage<T> result = new CommonPage<T>();
         result.setTotalPage(pageInfo.getTotalPages());

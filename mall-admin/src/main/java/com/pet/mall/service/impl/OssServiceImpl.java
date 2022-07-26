@@ -19,10 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Oss对象存储管理Service实现类
- * Created by pet on 2018/5/17.
- */
 @Service
 public class OssServiceImpl implements OssService {
 

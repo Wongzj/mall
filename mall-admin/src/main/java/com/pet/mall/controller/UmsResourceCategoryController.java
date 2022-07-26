@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 后台资源分类管理Controller
+ * Controller: ResourceCategory Management
  * Created by pet on 2020/2/5.
  */
 @Controller
-@Api(tags = "UmsResourceCategoryController", description = "后台资源分类管理")
+@Api(tags = "UmsResourceCategoryController", description = "ResourceCategory Management")
 @RequestMapping("/resourceCategory")
 public class UmsResourceCategoryController {
     @Autowired
     private UmsResourceCategoryService resourceCategoryService;
 
-    @ApiOperation("查询所有后台资源分类")
+    @ApiOperation("select")
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<UmsResourceCategory>> listAll() {
@@ -30,7 +30,7 @@ public class UmsResourceCategoryController {
         return CommonResult.success(resourceList);
     }
 
-    @ApiOperation("添加后台资源分类")
+    @ApiOperation("add")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody UmsResourceCategory umsResourceCategory) {
@@ -42,7 +42,7 @@ public class UmsResourceCategoryController {
         }
     }
 
-    @ApiOperation("修改后台资源分类")
+    @ApiOperation("update")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id,
@@ -55,7 +55,7 @@ public class UmsResourceCategoryController {
         }
     }
 
-    @ApiOperation("根据ID删除后台资源")
+    @ApiOperation("delete")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {

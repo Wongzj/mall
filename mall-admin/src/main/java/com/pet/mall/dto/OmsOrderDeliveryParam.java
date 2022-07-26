@@ -4,17 +4,13 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * 订单发货参数
- * Created by pet on 2018/10/12.
- */
 @Getter
 @Setter
 public class OmsOrderDeliveryParam {
-    @ApiModelProperty("订单id")
+    @ApiModelProperty("id")
     private Long orderId;
-    @ApiModelProperty("物流公司")
+    @ApiModelProperty("deliveryCompany")
     private String deliveryCompany;
-    @ApiModelProperty("物流单号")
+    @ApiModelProperty("deliverySn")
     private String deliverySn;
 }

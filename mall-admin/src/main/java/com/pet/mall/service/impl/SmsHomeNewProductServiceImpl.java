@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 首页新品推荐管理Service实现类
- * Created by pet on 2018/11/6.
- */
 @Service
 public class SmsHomeNewProductServiceImpl implements SmsHomeNewProductService {
     @Autowired

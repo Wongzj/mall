@@ -6,10 +6,6 @@ import com.pet.mall.service.OmsOrderSettingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * 订单设置管理Service实现类
- * Created by pet on 2018/10/16.
- */
 @Service
 public class OmsOrderSettingServiceImpl implements OmsOrderSettingService {
     @Autowired

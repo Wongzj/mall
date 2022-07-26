@@ -4,21 +4,17 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * OSS上传文件的回调结果
- * Created by pet on 2018/5/17.
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class OssCallbackResult {
-    @ApiModelProperty("文件名称")
+    @ApiModelProperty("filename")
     private String filename;
-    @ApiModelProperty("文件大小")
+    @ApiModelProperty("size")
     private String size;
-    @ApiModelProperty("文件的mimeType")
+    @ApiModelProperty("mimeType")
     private String mimeType;
-    @ApiModelProperty("图片文件的宽")
+    @ApiModelProperty("width")
     private String width;
-    @ApiModelProperty("图片文件的高")
+    @ApiModelProperty("height")
     private String height;
 }

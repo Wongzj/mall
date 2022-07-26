@@ -9,10 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 收货地址管理Service实现类
- * Created by pet on 2018/10/18.
- */
 @Service
 public class OmsCompanyAddressServiceImpl implements OmsCompanyAddressService {
     @Autowired

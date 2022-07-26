@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 应用启动入口
- * Created by pet on 2018/4/26.
+ * entrance
+ * Created by EC6001 on 2022/7/03
  */
 @SpringBootApplication
 public class MallAdminApplication {

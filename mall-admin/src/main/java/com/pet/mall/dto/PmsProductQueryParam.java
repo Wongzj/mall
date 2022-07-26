@@ -4,23 +4,19 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * 商品查询参数
- * Created by pet on 2018/4/27.
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class PmsProductQueryParam {
-    @ApiModelProperty("上架状态")
+    @ApiModelProperty("publishStatus")
     private Integer publishStatus;
-    @ApiModelProperty("审核状态")
+    @ApiModelProperty("verifyStatus")
     private Integer verifyStatus;
-    @ApiModelProperty("商品名称模糊关键字")
+    @ApiModelProperty("keyword")
     private String keyword;
-    @ApiModelProperty("商品货号")
+    @ApiModelProperty("productSn")
     private String productSn;
-    @ApiModelProperty("商品分类编号")
+    @ApiModelProperty("productCategoryId")
     private Long productCategoryId;
-    @ApiModelProperty("商品品牌编号")
+    @ApiModelProperty("brandId")
     private Long brandId;
 }

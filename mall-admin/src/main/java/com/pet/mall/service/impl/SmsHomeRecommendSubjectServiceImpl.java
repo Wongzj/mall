@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 首页专题推荐管理Service实现类
- * Created by pet on 2018/11/7.
- */
 @Service
 public class SmsHomeRecommendSubjectServiceImpl implements SmsHomeRecommendSubjectService {
     @Autowired
