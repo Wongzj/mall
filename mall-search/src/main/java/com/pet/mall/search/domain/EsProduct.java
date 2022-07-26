@@ -12,10 +12,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * 搜索商品的信息
- * Created by pet on 2018/6/19.
- */
+
 @Data
 @EqualsAndHashCode
 @Document(indexName = "pms")
