@@ -11,10 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-/**
- * 会员收藏Service实现类
- * Created by pet on 2018/8/2.
- */
+
 @Service
 public class MemberCollectionServiceImpl implements MemberCollectionService {
     @Autowired

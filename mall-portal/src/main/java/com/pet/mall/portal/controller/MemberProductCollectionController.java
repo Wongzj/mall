@@ -11,18 +11,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 会员商品收藏管理Controller
- * Created by pet on 2018/8/2.
- */
+
 @Controller
-@Api(tags = "MemberCollectionController", description = "会员收藏管理")
+@Api(tags = "MemberCollectionController", description = "Member collection management")
 @RequestMapping("/member/productCollection")
 public class MemberProductCollectionController {
     @Autowired
     private MemberCollectionService memberCollectionService;
 
-    @ApiOperation("添加商品收藏")
+    @ApiOperation("Add item collection")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult add(@RequestBody MemberProductCollection productCollection) {
@@ -34,7 +31,7 @@ public class MemberProductCollectionController {
         }
     }
 
-    @ApiOperation("删除商品收藏")
+    @ApiOperation("Delete item collection")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(Long productId) {
@@ -46,7 +43,7 @@ public class MemberProductCollectionController {
         }
     }
 
-    @ApiOperation("显示当前用户商品收藏列表")
+    @ApiOperation("Display the current user's favorite list of products")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<MemberProductCollection>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -55,7 +52,7 @@ public class MemberProductCollectionController {
         return CommonResult.success(CommonPage.restPage(page));
     }
 
-    @ApiOperation("显示商品收藏详情")
+    @ApiOperation("Show product collection details")
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<MemberProductCollection> detail(@RequestParam Long productId) {
@@ -63,7 +60,7 @@ public class MemberProductCollectionController {
         return CommonResult.success(memberProductCollection);
     }
 
-    @ApiOperation("清空当前用户商品收藏列表")
+    @ApiOperation("Clear the current user's product collection list")
     @RequestMapping(value = "/clear", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult clear() {

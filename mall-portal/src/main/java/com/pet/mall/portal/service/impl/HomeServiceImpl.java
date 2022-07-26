@@ -18,10 +18,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 首页内容管理Service实现类
- * Created by pet on 2019/1/28.
- */
+
 @Service
 public class HomeServiceImpl implements HomeService {
     @Autowired

@@ -15,10 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 会员浏览记录管理Service实现类
- * Created by pet on 2018/8/3.
- */
+
 @Service
 public class MemberReadHistoryServiceImpl implements MemberReadHistoryService {
     @Autowired

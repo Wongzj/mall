@@ -6,21 +6,18 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-/**
- * 生成订单时传入的参数
- * Created by pet on 2018/8/30.
- */
+
 @Data
 @EqualsAndHashCode
 public class OrderParam {
-    @ApiModelProperty("收货地址ID")
+    @ApiModelProperty("Delivery address ID")
     private Long memberReceiveAddressId;
-    @ApiModelProperty("优惠券ID")
+    @ApiModelProperty("Groupon ID")
     private Long couponId;
-    @ApiModelProperty("使用的积分数")
+    @ApiModelProperty("The number of integrals used")
     private Integer useIntegration;
-    @ApiModelProperty("支付方式")
+    @ApiModelProperty("mode of payment")
     private Integer payType;
-    @ApiModelProperty("被选中的购物车商品ID")
+    @ApiModelProperty("ID of the selected shopping cart item")
     private List<Long> cartIds;
 }

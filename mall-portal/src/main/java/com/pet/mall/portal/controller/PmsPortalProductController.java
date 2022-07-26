@@ -15,20 +15,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 前台商品管理Controller
- * Created by pet on 2020/4/6.
- */
+
 @Controller
-@Api(tags = "PmsPortalProductController", description = "前台商品管理")
+@Api(tags = "PmsPortalProductController", description = "Commodity management")
 @RequestMapping("/product")
 public class PmsPortalProductController {
 
     @Autowired
     private PmsPortalProductService portalProductService;
 
-    @ApiOperation(value = "综合搜索、筛选、排序")
-    @ApiImplicitParam(name = "sort", value = "排序字段:0->按相关度；1->按新品；2->按销量；3->价格从低到高；4->价格从高到低",
+    @ApiOperation(value = "Comprehensive search, screening and sorting")
+    @ApiImplicitParam(name = "sort", value = "Sorting field: 0-> by relevance; 1-> according to new products; 2-> by sales volume; 3-> price from low to high; 4-> price from high to low",
             defaultValue = "0", allowableValues = "0,1,2,3,4", paramType = "query", dataType = "integer")
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     @ResponseBody

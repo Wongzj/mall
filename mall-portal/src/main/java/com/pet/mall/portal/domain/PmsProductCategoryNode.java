@@ -7,13 +7,10 @@ import lombok.Setter;
 
 import java.util.List;
 
-/**
- * 包含子分类的商品分类
- * Created by pet on 2020/4/6.
- */
+
 @Getter
 @Setter
 public class PmsProductCategoryNode extends PmsProductCategory {
-    @ApiModelProperty("子分类集合")
+    @ApiModelProperty("Set of subcategories")
     private List<PmsProductCategoryNode> children;
 }

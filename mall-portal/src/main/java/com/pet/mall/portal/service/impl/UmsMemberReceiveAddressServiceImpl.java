@@ -12,10 +12,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-/**
- * 用户地址管理Service实现类
- * Created by pet on 2018/8/28.
- */
+
 @Service
 public class UmsMemberReceiveAddressServiceImpl implements UmsMemberReceiveAddressService {
     @Autowired
@@ -44,7 +41,7 @@ public class UmsMemberReceiveAddressServiceImpl implements UmsMemberReceiveAddre
         UmsMemberReceiveAddressExample example = new UmsMemberReceiveAddressExample();
         example.createCriteria().andMemberIdEqualTo(currentMember.getId()).andIdEqualTo(id);
         if(address.getDefaultStatus()==1){
-            //先将原来的默认地址去除
+            //
             UmsMemberReceiveAddress record= new UmsMemberReceiveAddress();
             record.setDefaultStatus(0);
             UmsMemberReceiveAddressExample updateExample = new UmsMemberReceiveAddressExample();

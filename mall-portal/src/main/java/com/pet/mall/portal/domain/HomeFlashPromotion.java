@@ -7,21 +7,18 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.List;
 
-/**
- * 首页秒杀场次信息封装
- * Created by pet on 2019/1/28.
- */
+
 @Getter
 @Setter
 public class HomeFlashPromotion {
-    @ApiModelProperty("本场开始时间")
+    @ApiModelProperty("startTime")
     private Date startTime;
-    @ApiModelProperty("本场结束时间")
+    @ApiModelProperty("endTime")
     private Date endTime;
-    @ApiModelProperty("下场开始时间")
+    @ApiModelProperty("nextStartTime")
     private Date nextStartTime;
-    @ApiModelProperty("下场结束时间")
+    @ApiModelProperty("nextEndTime")
     private Date nextEndTime;
-    @ApiModelProperty("属于该秒杀活动的商品")
+    @ApiModelProperty("productList")
     private List<FlashPromotionProduct> productList;
 }

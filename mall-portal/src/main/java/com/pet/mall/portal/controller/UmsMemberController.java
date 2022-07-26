@@ -18,12 +18,8 @@ import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 会员登录注册管理Controller
- * Created by pet on 2018/8/3.
- */
 @Controller
-@Api(tags = "UmsMemberController", description = "会员登录注册管理")
+@Api(tags = "UmsMemberController", description = "Member login registration management")
 @RequestMapping("/sso")
 public class UmsMemberController {
     @Value("${jwt.tokenHeader}")
@@ -33,7 +29,7 @@ public class UmsMemberController {
     @Autowired
     private UmsMemberService memberService;
 
-    @ApiOperation("会员注册")
+    @ApiOperation("Member registration")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult register(@RequestParam String username,
@@ -41,17 +37,17 @@ public class UmsMemberController {
                                  @RequestParam String telephone,
                                  @RequestParam String authCode) {
         memberService.register(username, password, telephone, authCode);
-        return CommonResult.success(null,"注册成功");
+        return CommonResult.success(null,"login was successful");
     }
 
-    @ApiOperation("会员登录")
+    @ApiOperation("Member login")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult login(@RequestParam String username,
                               @RequestParam String password) {
         String token = memberService.login(username, password);
         if (token == null) {
-            return CommonResult.validateFailed("用户名或密码错误");
+            return CommonResult.validateFailed("Wrong user name or password");
         }
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token", token);
@@ -59,7 +55,7 @@ public class UmsMemberController {
         return CommonResult.success(tokenMap);
     }
 
-    @ApiOperation("获取会员信息")
+    @ApiOperation("Get member information")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult info(Principal principal) {
@@ -70,33 +66,33 @@ public class UmsMemberController {
         return CommonResult.success(member);
     }
 
-    @ApiOperation("获取验证码")
+    @ApiOperation("Get verification code")
     @RequestMapping(value = "/getAuthCode", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getAuthCode(@RequestParam String telephone) {
         String authCode = memberService.generateAuthCode(telephone);
-        return CommonResult.success(authCode,"获取验证码成功");
+        return CommonResult.success(authCode,"Successfully obtained the verification code");
     }
 
-    @ApiOperation("会员修改密码")
+    @ApiOperation("Member changes password")
     @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updatePassword(@RequestParam String telephone,
                                  @RequestParam String password,
                                  @RequestParam String authCode) {
         memberService.updatePassword(telephone,password,authCode);
-        return CommonResult.success(null,"密码修改成功");
+        return CommonResult.success(null,"Password modified successfully");
     }
 
 
-    @ApiOperation(value = "刷新token")
+    @ApiOperation(value = "Refresh token")
     @RequestMapping(value = "/refreshToken", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult refreshToken(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader);
         String refreshToken = memberService.refreshToken(token);
         if (refreshToken == null) {
-            return CommonResult.failed("token已经过期！");
+            return CommonResult.failed("The token has expired!");
         }
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token", refreshToken);

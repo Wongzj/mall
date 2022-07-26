@@ -21,10 +21,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * 购物车管理Service实现类
- * Created by pet on 2018/8/2.
- */
+
 @Service
 public class OmsCartItemServiceImpl implements OmsCartItemService {
     @Autowired
@@ -55,9 +52,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
         return count;
     }
 
-    /**
-     * 根据会员id,商品id和规格获取购物车中商品
-     */
+
     private OmsCartItem getCartItem(OmsCartItem cartItem) {
         OmsCartItemExample example = new OmsCartItemExample();
         OmsCartItemExample.Criteria criteria = example.createCriteria().andMemberIdEqualTo(cartItem.getMemberId())
@@ -118,7 +113,7 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
 
     @Override
     public int updateAttr(OmsCartItem cartItem) {
-        //删除原购物车信息
+        //
         OmsCartItem updateCart = new OmsCartItem();
         updateCart.setId(cartItem.getId());
         updateCart.setModifyDate(new Date());

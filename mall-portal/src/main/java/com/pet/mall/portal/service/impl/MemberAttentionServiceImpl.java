@@ -13,10 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-/**
- * 会员关注Service实现类
- * Created by pet on 2018/8/2.
- */
+
 @Service
 public class MemberAttentionServiceImpl implements MemberAttentionService {
     @Autowired
