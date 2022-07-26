@@ -10,10 +10,7 @@ import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * 取消订单消息的生产者
- * Created by pet on 2018/9/14.
- */
+
 @Component
 public class CancelOrderSender {
     private static final Logger LOGGER = LoggerFactory.getLogger(CancelOrderSender.class);
@@ -21,11 +18,11 @@ public class CancelOrderSender {
     private AmqpTemplate amqpTemplate;
 
     public void sendMessage(Long orderId,final long delayTimes){
-        //给延迟队列发送消息
+        //Send message to delay queue
         amqpTemplate.convertAndSend(QueueEnum.QUEUE_TTL_ORDER_CANCEL.getExchange(), QueueEnum.QUEUE_TTL_ORDER_CANCEL.getRouteKey(), orderId, new MessagePostProcessor() {
             @Override
             public Message postProcessMessage(Message message) throws AmqpException {
-                //给消息设置延迟毫秒值
+                //Set the delay millisecond value for the message
                 message.getMessageProperties().setExpiration(String.valueOf(delayTimes));
                 return message;
             }

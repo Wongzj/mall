@@ -6,44 +6,41 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
-/**
- * 退货申请请求参数
- * Created by pet on 2018/10/17.
- */
+
 @Getter
 @Setter
 public class OmsOrderReturnApplyParam {
-    @ApiModelProperty("订单id")
+    @ApiModelProperty("")
     private Long orderId;
-    @ApiModelProperty("退货商品id")
+    @ApiModelProperty("")
     private Long productId;
-    @ApiModelProperty("订单编号")
+    @ApiModelProperty("")
     private String orderSn;
-    @ApiModelProperty("会员用户名")
+    @ApiModelProperty("")
     private String memberUsername;
-    @ApiModelProperty("退货人姓名")
+    @ApiModelProperty("")
     private String returnName;
-    @ApiModelProperty("退货人电话")
+    @ApiModelProperty("")
     private String returnPhone;
-    @ApiModelProperty("商品图片")
+    @ApiModelProperty("")
     private String productPic;
-    @ApiModelProperty("商品名称")
+    @ApiModelProperty("")
     private String productName;
-    @ApiModelProperty("商品品牌")
+    @ApiModelProperty("")
     private String productBrand;
-    @ApiModelProperty("商品销售属性：颜色：红色；尺码：xl;")
+    @ApiModelProperty("Product Attr")
     private String productAttr;
-    @ApiModelProperty("退货数量")
+    @ApiModelProperty("Product Count")
     private Integer productCount;
-    @ApiModelProperty("商品单价")
+    @ApiModelProperty("Product Price")
     private BigDecimal productPrice;
-    @ApiModelProperty("商品实际支付单价")
+    @ApiModelProperty("Product Real Price")
     private BigDecimal productRealPrice;
-    @ApiModelProperty("原因")
+    @ApiModelProperty("reason")
     private String reason;
-    @ApiModelProperty("描述")
+    @ApiModelProperty("description")
     private String description;
-    @ApiModelProperty("凭证图片，以逗号隔开")
+    @ApiModelProperty("proof Pics")
     private String proofPics;
 
 }

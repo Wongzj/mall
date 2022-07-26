@@ -10,23 +10,20 @@ import lombok.Setter;
 
 import java.util.List;
 
-/**
- * 首页内容返回信息封装
- * Created by pet on 2019/1/28.
- */
+
 @Getter
 @Setter
 public class HomeContentResult {
-    @ApiModelProperty("轮播广告")
+    @ApiModelProperty("advertiseList")
     private List<SmsHomeAdvertise> advertiseList;
-    @ApiModelProperty("推荐品牌")
+    @ApiModelProperty("brandList")
     private List<PmsBrand> brandList;
-    @ApiModelProperty("当前秒杀场次")
+    @ApiModelProperty("homeFlashPromotion")
     private HomeFlashPromotion homeFlashPromotion;
-    @ApiModelProperty("新品推荐")
+    @ApiModelProperty("newProductList")
     private List<PmsProduct> newProductList;
-    @ApiModelProperty("人气推荐")
+    @ApiModelProperty("hotProductList")
     private List<PmsProduct> hotProductList;
-    @ApiModelProperty("推荐专题")
+    @ApiModelProperty("subjectList")
     private List<CmsSubject> subjectList;
 }

@@ -11,17 +11,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 会员关注品牌管理Controller
- * Created by pet on 2018/8/2.
- */
+
 @Controller
-@Api(tags = "MemberAttentionController", description = "会员关注品牌管理")
+@Api(tags = "MemberAttentionController", description = "Members pay attention to brand management")
 @RequestMapping("/member/attention")
 public class MemberAttentionController {
     @Autowired
     private MemberAttentionService memberAttentionService;
-    @ApiOperation("添加品牌关注")
+    @ApiOperation("Add brand focus")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult add(@RequestBody MemberBrandAttention memberBrandAttention) {
@@ -33,7 +30,7 @@ public class MemberAttentionController {
         }
     }
 
-    @ApiOperation("取消品牌关注")
+    @ApiOperation("Cancel brand focus")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(Long brandId) {
@@ -45,7 +42,7 @@ public class MemberAttentionController {
         }
     }
 
-    @ApiOperation("显示当前用户品牌关注列表")
+    @ApiOperation("Display the current user's brand attention list")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<MemberBrandAttention>> list(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -54,7 +51,7 @@ public class MemberAttentionController {
         return CommonResult.success(CommonPage.restPage(page));
     }
 
-    @ApiOperation("显示品牌关注详情")
+    @ApiOperation("Show brand attention details")
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<MemberBrandAttention> detail(@RequestParam Long brandId) {
@@ -62,7 +59,7 @@ public class MemberAttentionController {
         return CommonResult.success(memberBrandAttention);
     }
 
-    @ApiOperation("清空当前用户品牌关注列表")
+    @ApiOperation("Clear the current user's brand attention list")
     @RequestMapping(value = "/clear", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult clear() {

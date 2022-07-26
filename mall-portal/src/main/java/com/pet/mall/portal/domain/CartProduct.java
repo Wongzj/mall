@@ -9,15 +9,12 @@ import lombok.Setter;
 
 import java.util.List;
 
-/**
- * 购物车中带规格和SKU的商品信息
- * Created by pet on 2018/8/2.
- */
+
 @Getter
 @Setter
 public class CartProduct extends PmsProduct {
-    @ApiModelProperty("商品属性列表")
+    @ApiModelProperty("Product attribute list")
     private List<PmsProductAttribute> productAttributeList;
-    @ApiModelProperty("商品SKU库存列表")
+    @ApiModelProperty("Item SKU inventory list")
     private List<PmsSkuStock> skuStockList;
 }

@@ -9,36 +9,33 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * 确认单信息封装
- * Created by pet on 2018/8/30.
- */
+
 @Getter
 @Setter
 public class ConfirmOrderResult {
-    @ApiModelProperty("包含优惠信息的购物车信息")
+    @ApiModelProperty("")
     private List<CartPromotionItem> cartPromotionItemList;
-    @ApiModelProperty("用户收货地址列表")
+    @ApiModelProperty("")
     private List<UmsMemberReceiveAddress> memberReceiveAddressList;
-    @ApiModelProperty("用户可用优惠券列表")
+    @ApiModelProperty("")
     private List<SmsCouponHistoryDetail> couponHistoryDetailList;
-    @ApiModelProperty("积分使用规则")
+    @ApiModelProperty("")
     private UmsIntegrationConsumeSetting integrationConsumeSetting;
-    @ApiModelProperty("会员持有的积分")
+    @ApiModelProperty("")
     private Integer memberIntegration;
-    @ApiModelProperty("计算的金额")
+    @ApiModelProperty("")
     private CalcAmount calcAmount;
 
     @Getter
     @Setter
     public static class CalcAmount{
-        @ApiModelProperty("订单商品总金额")
+        @ApiModelProperty("Total Amount")
         private BigDecimal totalAmount;
-        @ApiModelProperty("运费")
+        @ApiModelProperty("Freight Amount")
         private BigDecimal freightAmount;
-        @ApiModelProperty("活动优惠")
+        @ApiModelProperty("promotionAmount")
         private BigDecimal promotionAmount;
-        @ApiModelProperty("应付金额")
+        @ApiModelProperty("Pay Amount")
         private BigDecimal payAmount;
     }
 }

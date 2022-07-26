@@ -8,10 +8,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * 取消订单消息的消费者
- * Created by pet on 2018/9/14.
- */
+
 @Component
 @RabbitListener(queues = "mall.order.cancel")
 public class CancelOrderReceiver {

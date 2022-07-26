@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-/**
- * UmsMemberCacheService实现类
- * Created by pet on 2020/3/14.
- */
+
 @Service
 public class UmsMemberCacheServiceImpl implements UmsMemberCacheService {
     @Autowired

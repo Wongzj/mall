@@ -8,10 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-/**
- * 会员商品收藏
- * Created by pet on 2018/8/2.
- */
+
 @Getter
 @Setter
 @Document

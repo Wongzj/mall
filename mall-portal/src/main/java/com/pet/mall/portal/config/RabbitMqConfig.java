@@ -5,16 +5,11 @@ import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * 消息队列相关配置
- * Created by pet on 2018/9/14.
- */
+
 @Configuration
 public class RabbitMqConfig {
 
-    /**
-     * 订单消息实际消费队列所绑定的交换机
-     */
+
     @Bean
     DirectExchange orderDirect() {
         return ExchangeBuilder
@@ -23,9 +18,7 @@ public class RabbitMqConfig {
                 .build();
     }
 
-    /**
-     * 订单延迟队列队列所绑定的交换机
-     */
+
     @Bean
     DirectExchange orderTtlDirect() {
         return ExchangeBuilder
@@ -34,17 +27,12 @@ public class RabbitMqConfig {
                 .build();
     }
 
-    /**
-     * 订单实际消费队列
-     */
+
     @Bean
     public Queue orderQueue() {
         return new Queue(QueueEnum.QUEUE_ORDER_CANCEL.getName());
     }
 
-    /**
-     * 订单延迟队列（死信队列）
-     */
     @Bean
     public Queue orderTtlQueue() {
         return QueueBuilder
@@ -54,9 +42,7 @@ public class RabbitMqConfig {
                 .build();
     }
 
-    /**
-     * 将订单队列绑定到交换机
-     */
+
     @Bean
     Binding orderBinding(DirectExchange orderDirect,Queue orderQueue){
         return BindingBuilder
@@ -65,9 +51,7 @@ public class RabbitMqConfig {
                 .with(QueueEnum.QUEUE_ORDER_CANCEL.getRouteKey());
     }
 
-    /**
-     * 将订单延迟队列绑定到交换机
-     */
+
     @Bean
     Binding orderTtlBinding(DirectExchange orderTtlDirect,Queue orderTtlQueue){
         return BindingBuilder
